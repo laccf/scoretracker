@@ -1,0 +1,12 @@
+{
+  "password": "pass",
+  "role": {
+    "name": "ROOT",
+    "id": 50
+  },
+  "phone": 33333333,
+  "name": "root",
+  "id": 150,
+  "email": "teste@gmail.com",
+  "username": "userroot"
+}

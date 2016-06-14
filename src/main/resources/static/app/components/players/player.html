@@ -1,0 +1,116 @@
+<!-- Page Heading -->
+<div class="row" ng-controller="playerCtrl">
+
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Player
+            <small>{{player.name}} {{player.lastName}}</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-users"></i> <a ui-sref="players">Players</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-user"></i> {{player.name}} {{player.lastName}}
+            </li>
+        </ol>
+    </div>
+
+</div>
+
+<div ng-controller="playerCtrl">
+
+    <div ng-show="errorMsgPlayer" class="row">
+        <div class="col-lg-12">
+            <div ng-if="errorMsgPlayer" class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <i class="fa fa-info-circle"></i> <strong>Error:</strong> {{errorMsgPlayer}}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row" ng-controller="playerCtrl">
+    <div class="col-lg-12">
+
+
+        <div class="col-lg-3"/>
+        <div class="col-lg-2">
+            <img class="img-thumbnail" src="{{player.image}}" alt="">
+        </div>
+
+        <div class="col-lg-4">
+
+            <p>Team: <a ui-sref="team({name: team.name})">{{player.team.name}}</a></p>
+
+            <div class="table-responsive">
+                <table class="table table-hover table">
+                    <thead>
+                    <tr>
+                        <th>Goals</th>
+                        <th>Assists</th>
+                        <th>Fauls</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{player.goals}}</td>
+                        <td>{{player.assists}}</td>
+                        <td>{{player.fauls}}</td>
+                    </tr>
+
+                    <tr ng-repeat="user in users">
+                        <td>
+                            <!-- editable username (text with validation) -->
+        <span editable-text="user.name" e-name="name" e-form="rowform" onbeforesave="checkName($data, user.id)"
+              e-required>
+          {{ user.name || 'empty' }}
+        </span>
+                        </td>
+                        <td>
+                            <!-- editable status (select-local) -->
+        <span editable-select="user.status" e-name="status" e-form="rowform"
+              e-ng-options="s.value as s.text for s in statuses">
+          {{ showStatus(user) }}
+        </span>
+                        </td>
+                        <td>
+                            <!-- editable group (select-remote) -->
+        <span editable-select="user.group" e-name="group" onshow="loadGroups()" e-form="rowform"
+              e-ng-options="g.id as g.text for g in groups">
+          {{ showGroup(user) }}
+        </span>
+                        </td>
+                        <td style="white-space: nowrap">
+                            <!-- form -->
+                            <form editable-form name="rowform" onbeforesave="saveUser($data, user.id)"
+                                  ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == user">
+                                <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+                                    save
+                                </button>
+                                <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()"
+                                        class="btn btn-default">
+                                    cancel
+                                </button>
+                            </form>
+                            <div class="buttons" ng-show="!rowform.$visible">
+                                <button class="btn btn-primary" ng-click="rowform.$show()">edit</button>
+                                <button class="btn btn-danger" ng-click="removeUser($index)">del</button>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="col-lg-3"/>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+

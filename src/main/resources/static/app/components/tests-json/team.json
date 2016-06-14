@@ -1,0 +1,58 @@
+{
+  "info":{
+    "wins": 3,
+    "loses": 1,
+    "goals": 12,
+    "assists": 2,
+    "fauls": 22
+  },
+  "address": null,
+  "players": [
+    {
+      "lastName": "Antonio",
+      "image": null,
+      "name": "Luiz",
+      "weight": null,
+      "id": 2,
+      "height": null
+    },
+    {
+      "lastName": "Pablo",
+      "image": null,
+      "name": "Anderson",
+      "weight": null,
+      "id": 5,
+      "height": null
+    },
+    {
+      "lastName": "Lira",
+      "image": null,
+      "name": "Romeryto",
+      "weight": null,
+      "id": 8,
+      "height": null
+    },
+    {
+      "lastName": "Alves",
+      "image": null,
+      "name": "Gabi",
+      "weight": null,
+      "id": 11,
+      "height": null
+    },
+    {
+      "lastName": "Hyvo",
+      "image": null,
+      "name": "Pedro",
+      "weight": null,
+      "id": 14,
+      "height": null
+    }
+  ],
+  "name": "Santa Cruz",
+  "logo": null,
+  "id": 2,
+  "league": {
+    "name": "Campeonato Pernambucano"
+  }
+}

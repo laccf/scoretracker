@@ -1,0 +1,73 @@
+<!-- Page Heading -->
+<div class="row" ng-controller="userCtrl">
+
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            User
+            <small>{{user.name}}</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-users"></i> <a ui-sref="users">Users</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-user"></i> {{user.name}}
+            </li>
+        </ol>
+    </div>
+
+</div>
+
+<div ng-controller="userCtrl">
+
+    <div ng-show="errorMsgUser" class="row">
+        <div class="col-lg-12">
+            <div ng-if="errorMsgUser" class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <i class="fa fa-info-circle"></i> <strong>Error:</strong> {{errorMsgUser}}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="row" ng-controller="userCtrl">
+    <div class="col-lg-12">
+
+
+        <div class="col-lg-3"/>
+
+        <div class="col-lg-6">
+
+            <p>User: <a ui-sref="user({name: user.name})">{{user.name}}</a></p>
+
+            <div class="table-responsive">
+                <table class="table table-hover table">
+                    <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Role</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.phone}}</td>
+                        <td>{{user.role}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="col-lg-3"/>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+

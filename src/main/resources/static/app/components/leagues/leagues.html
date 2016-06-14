@@ -1,0 +1,128 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Leagues
+            <small>Manage Leagues</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i> <a ui-sref="dashboard">Dashboard</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-trophy"></i> Leagues
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+<div ng-controller="leaguesCtrl">
+
+<div ng-show="errorMsgLeagues" class="row">
+    <div class="col-lg-12">
+        <div ng-if="errorMsgLeagues" class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <i class="fa fa-info-circle"></i> <strong>Error:</strong> {{errorMsgLeagues}}
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div class="row" ng-controller="leaguesCtrl">
+    <div class="col-lg-12">
+
+        <h2>List of Leagues</h2>
+
+        <div class="col-lg-12">
+            <div class="col-lg-1"/>
+            <div class="col-lg-4">
+                <input class="form-control" type="text" placeholder="Name" ng-model="leagueName">
+            </div>
+
+            <div class="col-lg-4">
+                <select class="form-control" ng-model="usersToSelect.userSelected">
+                    <option value="">Choose a Admin</option>
+                    <option ng-repeat="user in usersToSelect.userAvailableOptions" value="{{user.id}}">
+                        {{user.name}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-lg-1"/>
+        </div>
+        <div class="col-lg-12">
+
+            <div class="col-lg-1"/>
+            <div class="col-lg-4">
+                <input class="form-control" type="number" placeholder="Year" min="2016" ng-model="leagueDate">
+            </div>
+            <div class="col-lg-4">
+                <input class="form-control" type="file" placeholder="Logo" ng-model="leagueLogo" >
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-primary" ng-click="addLeague()"> Add</button>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Year</th>
+                        <th>Admin</th>
+                        <th>Teams</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="league in leagues" ng-include="getTemplate(league)">
+                        <!-- Tab Content Here -->
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+
+<script type="text/ng-template" id="displayLeague">
+    <td>{{league.logo}}</td>
+    <td><a ui-sref="league({leagueId: league.id})">{{league.name}}</a></td>
+    <td>{{league.date}}</td>
+    <td>{{league.leagueAdmin.name}}</td>
+    <td>{{league.teams.length}}</td>
+    <td>
+        <i class="fa fa-fw fa-pencil-square-o" ng-click="editLeague(league)"/>
+        <i class="fa fa-fw fa-trash-o" ng-click="removeLeague($index)"/>
+    </td>
+</script>
+
+<script type="text/ng-template" id="editLeague">
+    <td>{{league.logo}}</td>
+    <td><input type="text" ng-model="selectedLeague.name" /></td>
+    <td><input type="number" min="2016" ng-model="selectedLeague.date" /></td>
+    <td>
+        <select class="form-control" ng-init="selectedLeague.user.id = usersToSelect.userAvailableOptions[0]" ng-model="selectedLeague.user.id">
+            <option value="">Choose a Admin</option>
+            <option ng-repeat="user in usersToSelect.userAvailableOptions" value="{{user.id}}">
+                {{user.name}}
+            </option>
+        </select>
+    </td>
+    <td>{{league.teams.length}}</td>
+    <td>
+        <i class="fa fa-fw fa-save" ng-click="saveLeague($index)"/>
+        <i class="fa fa-fw fa-close" ng-click="reset()"/>
+    </td>
+</script>
+
+
+
+
+

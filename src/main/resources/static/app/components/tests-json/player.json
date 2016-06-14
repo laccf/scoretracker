@@ -1,0 +1,15 @@
+{
+  "lastName": "Silva",
+  "image": null,
+  "name": "Durval",
+  "weight": 77,
+  "id": 1,
+  "height": 175,
+  "goals": 10,
+  "fauls": 2,
+  "assists": 7,
+  "team":{
+    "id":1,
+    "name":"Sport"
+  }
+}

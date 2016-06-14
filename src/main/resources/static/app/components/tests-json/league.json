@@ -1,0 +1,99 @@
+{
+  "name": "Campeonato Pernambucano",
+  "teams": [
+    {
+      "name": "Sport Club",
+      "logo": null,
+      "id": 1,
+      "wins": 3,
+      "draws": 3,
+      "loses": 1,
+      "goals": 12,
+      "assists": 2,
+      "fauls": 22
+    },
+    {
+      "name": "Santa Cruz",
+      "logo": null,
+      "id": 2,
+      "wins": 5,
+      "draws": 2,
+      "loses": 1,
+      "goals": 15,
+      "assists": 15,
+      "fauls": 1
+    },
+    {
+      "name": "Náutico",
+      "logo": null,
+      "id": 3,
+      "wins": 0,
+      "draws": 0,
+      "loses": 0,
+      "goals": 0,
+      "assists": 0,
+      "fauls": 0
+    },
+    {
+      "name": "Salgueiro",
+      "logo": null,
+      "id": 4,
+      "wins": 0,
+      "draws": 0,
+      "loses": 0,
+      "goals": 0,
+      "assists": 0,
+      "fauls": 0
+    },
+    {
+      "name": "Porto",
+      "logo": null,
+      "id": 5,
+      "wins": 0,
+      "draws": 0,
+      "loses": 0,
+      "goals": 0,
+      "assists": 0,
+      "fauls": 0
+    },
+    {
+      "name": "Pesqueira",
+      "logo": null,
+      "id": 3,
+      "wins": 0,
+      "draws": 0,
+      "loses": 0,
+      "goals": 0,
+      "assists": 0,
+      "fauls": 0
+    },
+    {
+      "name": "América",
+      "logo": null,
+      "id": 3,
+      "wins": 0,
+      "draws": 0,
+      "loses": 0,
+      "goals": 0,
+      "assists": 0,
+      "fauls": 0
+    }
+  ],
+  "matches": [
+    {
+      "id": 1,
+      "homeTeam": {
+        "name": "Santa Cruz",
+        "logo": null,
+        "id": 2,
+        "score": 1
+      },
+      "visitorTeam": {
+        "name": "Nautico",
+        "logo": null,
+        "id": 3,
+        "score": 0
+      }
+    }
+  ]
+}

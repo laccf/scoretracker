@@ -1,0 +1,47 @@
+[
+  {
+    "password": "pass",
+    "phone": null,
+    "name": null,
+    "id": 50,
+    "email": null,
+    "username": "userroot",
+    "role": "ROOT"
+  },
+  {
+    "password": "pass",
+    "phone": null,
+    "name": null,
+    "id": 51,
+    "email": null,
+    "username": "userleague",
+    "role": "LEAGUEADMIN"
+  },
+  {
+    "password": "pass",
+    "phone": null,
+    "name": null,
+    "id": 52,
+    "email": null,
+    "username": "userteam",
+    "role": "TEAMADMIN"
+  },
+  {
+    "password": "pass",
+    "phone": null,
+    "name": null,
+    "id": 53,
+    "email": null,
+    "username": "userdelegate",
+    "role": "DELEGATE"
+  },
+  {
+    "password": "pass",
+    "phone": null,
+    "name": null,
+    "id": 54,
+    "email": null,
+    "username": "userdelegatetwo",
+    "role": "DELEGATE"
+  }
+]

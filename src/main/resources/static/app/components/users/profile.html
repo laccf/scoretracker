@@ -1,0 +1,27 @@
+<div class="row" ng-controller="profileCtrl">
+
+    <div class="col-lg-12">
+
+        <div class="col-lg-3"/>
+
+        <div class="col-lg-4">
+            <form class="form-login">
+
+                <h2 class="form-login-heading">Profile</h2>
+
+                <input type="text" id="inputUsername" class="form-control" placeholder="Name" ng-model="userName">
+
+                <input type="text" id="inputUserUsername" value="{{user.username}}" class="form-control" placeholder="Username" ng-model="userUsername" required>
+
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="userPassword" required>
+
+                <input id="inputPhone" class="form-control" placeholder="Phone" ng-model="userPhone">
+
+                <input id="inputEmail" class="form-control" placeholder="Email" ng-model="userEmail">
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Confirm</button>
+            </form>
+        </div>
+        <div class="col-lg-5"/>
+    </div>
+</div>

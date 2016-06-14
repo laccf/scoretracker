@@ -1,0 +1,122 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Players
+            <small>Manage Players</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i> <a ui-sref="dashboard">Dashboard</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-users"></i> Players
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<div ng-controller="playersCtrl">
+
+    <div ng-show="errorMsgPlayers" class="row">
+        <div class="col-lg-12">
+            <div ng-if="errorMsgPlayers" class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <i class="fa fa-info-circle"></i> <strong>Error:</strong> {{errorMsgPlayers}}
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.row -->
+
+<div class="row" ng-controller="playersCtrl">
+    <div class="col-lg-12">
+
+        <h2>List of Players</h2>
+
+        <div class="col-lg-12">
+            <div class="col-lg-1"/>
+            <div class="col-lg-3">
+                <input class="form-control" placeholder="Name" ng-model="playerName" required>
+            </div>
+            <div class="col-lg-3">
+                <input class="form-control" placeholder="Last Name" ng-model="playerLastName">
+            </div>
+            <div class="col-lg-3">
+                <input class="form-control" type="number" placeholder="Height" ng-model="playerHeight">
+            </div>
+
+            <div class="col-lg-4"/>
+        </div>
+        <div class="col-lg-12">
+            <div class="col-lg-1"/>
+            <div class="col-lg-3">
+                <input class="form-control" type="file" placeholder="Image" ng-model="playerImage">
+            </div>
+            <div class="col-lg-3">
+                <select class="form-control" ng-model="teamsToSelect.teamSelected">
+                    <option value="">Choose a Team</option>
+                    <option ng-repeat="team in teamsToSelect.teamAvailableOptions" value="{{team.id}}">{{team.name}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <input class="form-control" type="number" placeholder="Weight" ng-model="playerWeight">
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-primary" ng-click="addPlayer(team)"> Add</button>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Last Name</th>
+                        <th>Height</th>
+                        <th>Weight</th>
+                        <th>Team</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="player in players" ng-include="getTemplate(player)">
+                        <!-- Tab Content Here -->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+
+
+<script type="text/ng-template" id="displayPlayer">
+    <td><a ui-sref="player({playerId: player.id})">{{player.name}}</a></td>
+    <td>{{player.lastName}}</td>
+    <td>{{player.height}}</td>
+    <td>{{player.weight}}</td>
+    <td><a ui-sref="team({teamId: player.team.id})">{{player.team.name}}</a></td>
+    <td>
+        <i class="fa fa-fw fa-pencil-square-o" ng-click="editPlayer(player)"/>
+        <i class="fa fa-fw fa-trash-o" ng-click="removePlayer($index)"/>
+    </td>
+</script>
+
+<script type="text/ng-template" id="editPlayer">
+    <td><input type="text" ng-model="selectedPlayer.name"></td>
+    <td><input type="text" ng-model="selectedPlayer.lastName" /></td>
+    <td><input type="text" ng-model="selectedPlayer.height" /></td>
+    <td><input type="text" ng-model="selectedPlayer.weight" /></td>
+    <td><a ui-sref="team({teamId: player.team.id})">{{player.team.name}}</a></td>
+    <td>
+        <i class="fa fa-fw fa-save" ng-click="savePlayer($index)"/>
+        <i class="fa fa-fw fa-close" ng-click="reset()"/>
+    </td>
+</script>

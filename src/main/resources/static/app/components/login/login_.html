@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <!-- Bootstrap css -->
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom css -->
+    <link href="login.css" rel="stylesheet">
+
+
+</head>
+<body ng-app="myApp">
+
+
+<div class="container" ng-controller="loginCtrl">
+
+    <form class="form-login">
+
+        <h2 class="form-login-heading">Sign in</h2>
+
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input type="text" id="inputUsername" ng-model="usernameSubmit" class="form-control" placeholder="Username" required autofocus>
+
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" ng-model="passwordSubmit" class="form-control" placeholder="Password" required>
+
+        <div class="btn-link">
+            <label>
+                <a ui-sref="profile" > Create Account </a>
+            </label>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="submit()">Sign in</button>
+    </form>
+
+</div>
+
+<script src="../../assets/js/angular-bootstrap.js" type="text/javascript"></script>
+<script src="../../angular-ui-router.min.js"></script>
+<script src="../../app.js"></script>
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>-->
+<script src="../../angular.min.js"></script>
+
+</body>
+</html>

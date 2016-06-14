@@ -1,0 +1,99 @@
+<!-- Page Heading -->
+<div class="row" ng-controller="leagueCtrl">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            League
+            <small>{{league.name}}</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-trophy"></i> <a ui-sref="leagues">Leagues</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-trophy"></i> {{league.name}}
+            </li>
+        </ol>
+    </div>
+
+</div>
+
+<div ng-controller="leagueCtrl">
+
+    <div ng-show="errorMsgLeague" class="row">
+        <div class="col-lg-12">
+            <div ng-if="errorMsgLeague" class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <i class="fa fa-info-circle"></i> <strong>Error:</strong> {{errorMsgLeague}}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row" ng-controller="leagueCtrl">
+
+    <div class="col-lg-12">
+
+        <div class="col-lg-8">
+            <h2>{{league.name}}</h2>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>Wins</th>
+                        <th>Draws</th>
+                        <th>Loses</th>
+                        <th>Goals</th>
+                        <th>Fauls</th>
+                        <th>Assists</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr ng-repeat="team in league.teams">
+                        <td><a ui-sref="team({ teamId: team.id})">{{ team.name }}</a></td>
+                        <td>{{team.wins}}</td>
+                        <td>{{team.draws}}</td>
+                        <td>{{team.loses}}</td>
+                        <td>{{team.goals}}</td>
+                        <td>{{team.fauls}}</td>
+                        <td>{{team.assists}}</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <h2>Matches</h2>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>Score</th>
+                        <th>Score</th>
+                        <th>Team</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="match in league.matches" ui-sref="match({id: match.id})">
+                        <td>{{match.homeTeam.name}}</td>
+                        <td>{{match.homeTeam.score}}</td>
+                        <td>{{match.visitorTeam.score}}</td>
+                        <td>{{match.visitorTeam.name}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</div>
+<!-- /.container-fluid -->
+
+
